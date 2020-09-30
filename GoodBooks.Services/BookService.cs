@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GoodBooks.Data;
 using GoodBooks.Data.Models;
 
@@ -16,22 +17,32 @@ namespace GoodBooks.Services
 
         public void AddBook(Book book)
         {
-            throw new NotImplementedException();
+            _db.Add(book);
+            _db.SaveChanges();
         }
 
         public void DeleteBook(int bookId)
         {
-            throw new NotImplementedException();
+            var bookToDelete = _db.Books.Find(bookId);
+
+            if (bookToDelete != null)
+            {
+                _db.Remove(bookToDelete);
+            }
+
+            throw new InvalidOperationException("Cannot delete book that doesn't exist.");
         }
 
         public IList<Book> GetAllBooks()
         {
-            throw new NotImplementedException();
+            return _db.Books.ToList();
         }
 
-        public BookService GetBook(int bookId)
+        public Book GetBook(int bookId)
         {
-            throw new NotImplementedException();
+            var book = _db.Books.Find(bookId);
+
+            return _db.Books.Find(bookId);
         }
     }
 }
