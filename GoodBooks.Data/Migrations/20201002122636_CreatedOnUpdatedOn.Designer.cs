@@ -3,15 +3,17 @@ using System;
 using GoodBooks.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace GoodBooks.Data.Migrations
 {
     [DbContext(typeof(GoodBooksDbContext))]
-    partial class GoodBooksDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201002122636_CreatedOnUpdatedOn")]
+    partial class CreatedOnUpdatedOn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
