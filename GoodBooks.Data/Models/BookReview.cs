@@ -3,7 +3,7 @@ using System;
 namespace GoodBooks.Data.Models
 {
     /// <summary>
-    /// Book data entity model.
+    /// Book review data entity model.
     /// </summary>
     public class BookReview
     {
@@ -15,7 +15,7 @@ namespace GoodBooks.Data.Models
         /// <summary>
         /// Gets or sets the date the review was created on.
         /// </summary>
-        public DateTime CreateOn { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         /// <summary>
         /// Gets or sets the most recent date that the review was updated on.

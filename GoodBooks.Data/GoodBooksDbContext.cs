@@ -9,6 +9,6 @@ namespace GoodBooks.Data
         public GoodBooksDbContext(DbContextOptions options) : base(options) { }
 
         public virtual DbSet<Book> Books { get; set; }
-        public virtual DbSet<BookReview> BooksReviews { get; set; }
+        public virtual DbSet<BookReview> BookReviews { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 PROJECT_NAME ?= GoodBooks
 
-.PHONY: migrations db hello
+.PHONY: migrations db
 
 migrations:
 	cd ./GoodBooks.Data && dotnet ef --startup-project ../GoodBooks.Web/\
@@ -11,6 +11,3 @@ migrations:
 db:
 	cd ./GoodBooks.Data && dotnet ef --startup-project ../GoodBooks.Web/\
 		database update && cd ..
-
-hello:
-	echo 'hello!'
