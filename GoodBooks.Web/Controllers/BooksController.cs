@@ -37,8 +37,13 @@ namespace GoodBooks.Web.Controllers
         }
 
         [HttpPost("/api/books")]
-        public ActionResult CreateNewBooks([FromBody] NewBookRequest bookRequest)
+        public ActionResult CreateBook([FromBody] NewBookRequest bookRequest)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Model state not valid.");
+            }
+
             var now = DateTime.UtcNow;
 
             var book = new Book()
