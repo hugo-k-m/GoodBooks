@@ -10,39 +10,39 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
-  import IBook from '../types/Book';
-  import BookService from '../services/book-service';
+import { Component, Vue } from 'vue-property-decorator';
+import IBook from '../types/Book';
+import BookService from '../services/book-service';
 
-  const bookService = new BookService();
+const bookService = new BookService();
 
-  @Component({
-    name: 'MyBooks',
-    components: {}
-  })
-  
-  export default class MyBooks extends Vue {
-    // data
-    myBooks: IBook[] = [];
+@Component({
+  name: 'MyBooks',
+  components: {}
+})
 
-    // computed properties
-    get bookCount() {
-      return this.myBooks.length;
-    }
+export default class MyBooks extends Vue {
+  // data
+  myBooks: IBook[] = [];
 
-    // props
-
-    // methods
-
-    // lifecycle hooks
-    created() {
-      bookService.getAllBooks()
-        .then(res => this.myBooks = res)
-        .catch(err => console.error(err));
-    }
-
-    // watchers
+  // computed properties
+  get bookCount() {
+    return this.myBooks.length;
   }
+
+  // props
+
+  // methods
+
+  // lifecycle hooks
+  created() {
+    bookService.getAllBooks()
+      .then(res => this.myBooks = res)
+      .catch(err => console.error(err));
+  }
+
+  // watchers
+}
 </script>
 
 <style lang="scss">
