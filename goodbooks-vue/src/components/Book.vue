@@ -31,8 +31,9 @@ export default class Book extends Vue {
   .book-wrapper {
     margin: 0.8rem;
     padding: 0.4rem;
-    border: 1px solid #555;
+    background-color: #fafafa;
     border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
     .book-author {
       color: #333;
