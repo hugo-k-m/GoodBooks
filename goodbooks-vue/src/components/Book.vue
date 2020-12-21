@@ -7,7 +7,7 @@
       {{ book.author }}
     </div>
     <div class="book-created">
-      {{ book.createdOn }}
+      {{ book.createdOn | humanize }}
     </div>
   </div>
 </template>
