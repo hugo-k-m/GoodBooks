@@ -13,4 +13,9 @@ export default class BookService {
         const result = await axios.post(`${this.API_URL}/books/`, book);
         return result.data;
     }
+
+    public async deleteBook(id: number) {
+        const result = await axios.delete(`${this.API_URL}/books/${id}`);
+        return result.data;
+    }
 }

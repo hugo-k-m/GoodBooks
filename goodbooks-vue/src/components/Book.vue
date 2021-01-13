@@ -9,12 +9,18 @@
     <div class="book-created">
       {{ book.createdOn | humanize }}
     </div>
+    <div @click="deleteBook(book.id)" class="delete">
+      X
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import BookService from '../services/book-service';
 import IBook from '../types/Book';
+
+const bookService = new BookService();
 
 @Component({
   name: "Book",
@@ -24,11 +30,16 @@ import IBook from '../types/Book';
 export default class Book extends Vue {
   @Prop({ required: true })
   book!: IBook
+
+  async deleteBook(id: number) {
+    await bookService.deleteBook(id);
+  }
 }
 </script>
 
 <style lang="scss" scoped>
   .book-wrapper {
+    position: relative;
     margin: 0.8rem;
     padding: 0.4rem;
     background-color: #fafafa;
@@ -47,6 +58,16 @@ export default class Book extends Vue {
     .book-title {
       font-size: 1.2rem;
       font-weight: bold;
+    }
+
+    .delete {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #CE3355;
+      cursor: pointer;
     }
   }
 </style>
