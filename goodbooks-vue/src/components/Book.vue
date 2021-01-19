@@ -29,10 +29,11 @@ const bookService = new BookService();
 
 export default class Book extends Vue {
   @Prop({ required: true })
-  book!: IBook
+  book!: IBook;
 
   async deleteBook(id: number) {
     await bookService.deleteBook(id);
+    this.$emit('deleted');
   }
 }
 </script>

@@ -3,6 +3,7 @@
     <h1>My Books</h1>
     <div v-if="myBooks.length">
       <book
+        @deleted="getAllBooks"
         :book="book"
         v-for="book in myBooks"
         :key="book.id">
@@ -33,18 +34,15 @@ export default class MyBooks extends Vue {
     return this.myBooks.length;
   }
 
-  // props
-
-  // methods
-
-  // lifecycle hooks
-  created() {
+  getAllBooks() {
     bookService.getAllBooks()
       .then(res => this.myBooks = res)
       .catch(err => console.error(err));
   }
 
-  // watchers
+  created() {
+    this.getAllBooks();
+  }
 }
 </script>
 
